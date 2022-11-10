@@ -79,3 +79,16 @@ ffmpeg -i input.mp4 -c:v libx264 -crf 31 output.mp4
 ```
 
 如果手机竖着拍的，就加上 ```-vf "transpose=2"``` 
+
+### 5、将立体声视频转换成单声道视频：
+
+```
+ffmpeg -i input.mp4 -ac 1 output.mp4
+```
+
+转换成静音视频:
+
+```
+ffmpeg -i input.mp4 -an output.mp4
+```
+
