@@ -92,3 +92,23 @@ ffmpeg -i input.mp4 -ac 1 output.mp4
 ffmpeg -i input.mp4 -an output.mp4
 ```
 
+### 6、混音
+
+```
+ffmpeg -i INPUT1 -i INPUT2 -i INPUT3 -filter_complex amix=inputs=3:duration=first:dropout_transition=3 OUTPUT 
+```
+
+
+will mix 3 input audio streams to a single output with the same duration as the first input and a dropout transition time of 3 seconds.
+
+It accepts the following parameters:
+
+```inputs``` : The number of inputs. If unspecified, it defaults to 2.
+
+```duration``` : How to determine the end-of-stream.
+
+* ```longest``` : The duration of the longest input. (default)
+* ```shortest``` : The duration of the shortest input.
+* ```first``` : The duration of the first input.
+
+```dropout_transition``` : The transition time, in seconds, for volume renormalization when an input stream ends. The default value is 2 seconds.
