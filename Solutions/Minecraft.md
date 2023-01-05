@@ -51,7 +51,7 @@ https://www.minecraft.net/zh-hans/download/server
 ```
 mkdir minecraft
 cd minecraft/
-curl -O https://piston-data.mojang.com/v1/objects/***/server.jar
+curl -O https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
 ```
 
 重命名
@@ -63,6 +63,14 @@ mv server.jar minecraft_server.1.19.3.jar
 ### 5 导入地图数据
 
 若创建新地图则跳过该步骤
+
+解除root不能使用fpt的权限
+
+```
+cd /etc/vsftpd
+vim user_list	#删除root
+vim ftpusers	#删除root
+```
 
 启动ftp服务
 
@@ -114,6 +122,12 @@ screen -ls
 
 ```
 screen -r <session id>
+```
+
+退出窗口
+
+```
+screen -d <session id>
 ```
 
 清除窗口
